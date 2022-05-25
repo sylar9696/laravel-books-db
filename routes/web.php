@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Rotta: localhost:8080
+// Route::get('/', function () {
+
+//     $books = config('books');
+//     dump($books);
+
+//     //compact('books') = [ 'books' => $books ]
+//     return view( 'pages.book.index', compact('books') );
+// });
+
+Route::get('/', 'BookController@index' )->name('home');
+
+//Rotta:localhost8080/book/id
+Route::get('/book/{id}', 'BookController@show')->name('book');
